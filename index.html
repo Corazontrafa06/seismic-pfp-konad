@@ -1699,7 +1699,7 @@
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 
-        const tx = await contract.mintCommission(wallet, tokenURI);
+        const tx = await contract.mintCommission(wallet, tokenURI, { gasLimit: 500000 });
         setStatus('Menunggu konfirmasi blockchain...');
         const receipt = await tx.wait();
 
